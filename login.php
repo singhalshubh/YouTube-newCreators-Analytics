@@ -2,6 +2,9 @@
   $db = mysqli_connect("localhost","root","","youtube") or die("Error Connecting");
   $username = $_POST["username"];
   $password = $_POST["password"];
+  if(Math.floor( Math.log($username) / Math.LN10 ) + 1 < 10) {
+    header("refresh:0.1,url=wrongIndex.html");
+  }
   $views = 0;
   $query = <<<EOD
 select username from youtube where username = '$username';

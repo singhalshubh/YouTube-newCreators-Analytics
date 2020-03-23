@@ -1,26 +1,106 @@
 <!DOCTYPE html>
 <html>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
 <head>
 	<title>Login</title>
 </head>
-<body class="body">
-	<form class="div1" action="login.php" method="POST"> 
-		<label> UserName</label><br>
-		<input type="number" name="username" id = "username" maxlength="10"><br>
-		<label>Password</label><br>
-		<input type="text" id = "password" name="password">
-		<input type="Submit" name="submit">
-	</form>
-	</body>
+<body bgcolor= #FFD700>
+	<section class="leftside">
+		<img src="yt.png" class="youtube"><br>
+		<h1 class="heading">YouTube Creator's Analytics</h1>
+		<p class="intro">
+			YouTube is a platform which promotes various young content developers to outsource their talent. YouTube Creator's Analytics aims to provide a tool which can record the number of users at different watch times in the video so that the youtubers can check their content engangement time for various users and to analyse whether their risky/intuitive element of YouTube worked or not?(By seeing the analytics, one can determine the graph between time points and number of users).
+		</p>
+		<p class="intro1">
+			Made by Shubhendra Pal Singhal. This website is not an official website of YouTube.
+		</p>
+	</section>
+	<section class="rightside">
+		<h1 class="heading1">Sign In</h1>
+		<form class="div1" action="login.php" method="POST"> 
+			<label> UserName (Phone-Number)</label><br>
+			<input type="number" name="username" id = "username" size="10" pattern="[1-9]{1}-[0-9]{9}" onkeypress="if (this.value.length==10) {return false;} if (this.value.length == 1 && this.value==0) {return false;}" onkeydown="if (this.value.length==10 && event.keyCode==38) {return false;} if (this.value.length<10 && event.keyCode==9) {return false;}" placeholder=" No Country code Required" maxlength="10" minlength="10" required><br><br>
+			<label>Password</label><br>
+			<input type="password" id = "password" name="password" required> <br><br><br>
+			<input type="Submit" name="submit" class="button"><br><br>
+		</form>
+	</section>
+
+
+</body>
+
 <style type="text/css">
-	.body {
-		width: 50%;
-		height: 50%;
-	}
 	.div1 {
-		margin:10%;
-		padding:1%;
-		text-align: left;
+		margin-top: 12%;
+		margin-left: 40%;
+		font-family: 'Baloo Da 2', cursive;
+	}
+	.leftside {
+		background: black;
+		float: left;
+		color: white;
+		width: 50%;
+		margin: 1%;
+	}
+	.rightside {
+		float: right;
+		margin-top: 5%;
+		margin-right: 4%;
+		padding: 0%;
+		width: 36%;
+		height: 200%;
+		background: #add8e6;
+		border-color: black;
+		
+	}
+	.youtube {
+		width: 30%;
+		height: 30%;
+		padding: 1%;
+		margin-top: 3%;
+		margin-left: 3%;
+	}
+	.intro {
+		margin: 5%;
+		padding-top: 10%;
+		overflow: hidden;
+		padding-bottom: none;
+		font-family: 'Baloo Da 2', cursive;
+
+	}
+	.intro1 {
+		margin: 5%;
+		padding-top: 10%;
+		overflow: hidden;
+		padding-bottom: none;
+		font-size: 5%;
+		text-align: center;
+		font-family: 'Baloo Da 2', cursive;
+
+	}
+	.heading {
+		font-family: 'Acme', sans-serif;
+		width: 30%;
+		height: 30%;
+		padding: 1%;
+		margin-top: 3%;
+		margin-left: 3%;
+	}
+	.heading1 {
+		font-family: 'Acme', sans-serif;
+		width: 100%;
+		height: 30%;
+		padding: 1%;
+		text-align: center;
+		margin-top: 3%;
+		margin-left: 3%;
+	}
+	.button {
+		font-family: 'Baloo Da 2', cursive;
+		color: black;
+		background: #ffcccb;
 	}
 </style>
 </html>

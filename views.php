@@ -5,12 +5,13 @@
 	$result = mysqli_query($db,$query) or die(mysqli_error($db));
 	$responseArray = mysqli_fetch_all($result,MYSQLI_ASSOC);
 	$view = $_POST["ViewTime"];
-	echo $view;
 	if($view > $responseArray[0]["views"]) {
   		$query1 = "UPDATE youtube SET views = '$view' WHERE username='$username'";
 		$result1 = mysqli_query($db,$query1) or die(mysqli_error($db));
 	}
+	header("refresh:0.01,url=index.html");
 	@flush();
+
 
 ?>
 

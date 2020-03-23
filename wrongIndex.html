@@ -4,9 +4,9 @@
 <link href="https://fonts.googleapis.com/css?family=Baloo+Da+2&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
 <head>
-	<title></title>
+	<title>Login</title>
 </head>
-<body bgcolor="#F5F5F5">
+<body bgcolor= #FFD700>
 	<section class="leftside">
 		<img src="yt.png" class="youtube"><br>
 		<h1 class="heading">YouTube Creator's Analytics</h1>
@@ -18,42 +18,25 @@
 		</p>
 	</section>
 	<section class="rightside">
-		<h6 class="intro2">Phone-Number (User) :  <?php $username = $_GET['username']; echo($username);?></h6>
-		<video id='vid' controls>
-			<source src="video.mp4" type="video/mp4">
-		</video>
-		<form method="POST" action="views.php" id="form">
-			<input type="hidden" step = "any" name="ViewTime" id = "ViewTime">
-			<input type="hidden" name="username" id = "username">
-			<input type="submit" name="submit" value= "Close and Record View Time" onclick="viewsClose()" class="button">
+		<h1 class="heading1">Sign In</h1> 
+		<h6 class="heading2">!! Inacceptable Credentials !!</h6>
+		<form class="div1" action="login.php" method="POST"> 
+			<label> UserName (Phone-Number)</label><br>
+			<input type="number" name="username" id = "username" size="10" pattern="[1-9]{1}-[0-9]{9}" onkeypress="if (this.value.length==10) {return false;} if (this.value.length == 1 && this.value==0) {return false;}" onkeydown="if (this.value.length==10 && event.keyCode==38) {return false;} if (this.value.length<10 && event.keyCode==9) {return false;}" placeholder=" No Country code Required" maxlength="10" minlength="10" required><br><br>
+			<label>Password</label><br>
+			<input type="password" id = "password" name="password" required> <br><br><br>
+			<input type="Submit" name="submit" class="button"><br><br>
 		</form>
 	</section>
+
+
 </body>
 
-<script type="text/javascript">
-	function viewsClose() {
-		document.getElementById("ViewTime").value = document.getElementById("vid").currentTime;
-		document.getElementById("username").value = <?php echo($_GET['username']);?>;
-	}
-</script>
-
 <style type="text/css">
-	#vid {
-		width: 40%;
-		align-self: center;
-		alignment-baseline: central;
-		height: 40%;
-		margin-left: 10%;
-		border-color: black;
-	}
-	#buttons {
-		height: 300%;
-	}
-	#button {
-		height: 100%;
-		width: 2%;
-		color: black;
-		background : white;
+	.div1 {
+		margin-top: 12%;
+		margin-left: 40%;
+		font-family: 'Baloo Da 2', cursive;
 	}
 	.leftside {
 		background: black;
@@ -67,7 +50,7 @@
 		margin-top: 5%;
 		margin-right: 4%;
 		padding: 0%;
-		width: 40%;
+		width: 36%;
 		height: 200%;
 		background: #add8e6;
 		border-color: black;
@@ -106,23 +89,25 @@
 		margin-top: 3%;
 		margin-left: 3%;
 	}
-	.intro2 {
-		margin: 5%;
-		padding-top: 1%;
-		overflow: hidden;
-		padding-bottom: none;
-		font-size: 20px;
+	.heading1 {
+		font-family: 'Acme', sans-serif;
+		width: 100%;
+		height: 30%;
+		padding: 1%;
 		text-align: center;
-		font-family: 'Baloo Da 2', cursive;
+		margin-top: 3%;
+		margin-left: 3%;
 	}
 	.button {
 		font-family: 'Baloo Da 2', cursive;
 		color: black;
 		background: #ffcccb;
-		margin-left: 50%;
-		margin-top: 10%;
-		margin-bottom: 5%;
+	}
+	.heading2 {
+		font-family: 'Acme', sans-serif;
+		color: red;
+		text-align: center;
+		font-size: 16%;
 	}
 </style>
-
 </html>
