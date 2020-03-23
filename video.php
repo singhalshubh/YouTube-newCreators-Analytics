@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<meta charset="utf-8"/>
+
 <head>
 	<title></title>
 </head>
@@ -7,47 +9,28 @@
 	USER : 
 	<?php 
 		$username = $_GET['username']; 
-		echo($username) 
+		echo($username);
 	?>
-	<video id='vid'>
+	<video id='vid' controls>
 		<source src="video.mp4" type="video/mp4">
 	</video>
 	<section>
-		<button onclick="playvideo()" type="button">
-			Play/Pause
+		<button onclick="close()">
+			Cefldekjwfe
 		</button>
 	</section>
+	<form method="POST" action="views.php" id="form">
+		<input type="number" step = "any" name="ViewTime" id = "ViewTime">
+		<input type="number" name="username" id = "username">
+		<input type="submit" name="submit" onclick="viewsClose()">
+	</form>
 </body>
 
-<script>
-	window.onbeforeunload = function() {
-		alert('Browser window is closing');	
-		<?php
-			$username = $_GET['username'];
-			$db = mysqli_connect("localhost","root","","youtube") or die("Error Connecting");
-			$query = "select views from `youtube` where username = '$username'";
-			$result = mysqli_query($db,$query) or die(mysqli_error($db));
-			$responseArray = mysqli_fetch_all($result,MYSQLI_ASSOC);
-			$view = time();
-			  if($view > $responseArray[0]["views"]) {
-		  		$query1 = "UPDATE `youtube` SET views = '$view' WHERE username='$username'";
-				$result1 = mysqli_query($db,$query1) or die(mysqli_error($db));
-			}
-			@flush();
-		?>
-		console.log('completed');
-		return "Closing..";
+<script type="text/javascript">
+	function viewsClose() {
+		document.getElementById("ViewTime").value = document.getElementById("vid").currentTime;
+		document.getElementById("username").value = <?php echo($_GET['username']);?>;
 	}
-	function time() {
-		return document.getElementById('vid').currentTime;
-	}
-	var video = document.getElementById('vid');
-	function playvideo() {
-		if(video.paused)
-			video.play();
-		else
-			video.pause();
-		}
 </script>
 
 <style type="text/css">
