@@ -50,5 +50,4 @@ int main() {
 		watchTime[i].push_back(rand() % int(ceil(totalTime))+0);
 	}
 	views(watchTime,totalTime);
-
 }
