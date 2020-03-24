@@ -1,0 +1,41 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Mar 24, 2020 at 08:27 PM
+-- Server version: 5.1.36
+-- PHP Version: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `youtube`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `youtube`
+--
+
+CREATE TABLE IF NOT EXISTS `youtube` (
+  `username` bigint(10) unsigned DEFAULT NULL COMMENT 'phone number',
+  `password` varchar(255) DEFAULT NULL,
+  `views` decimal(10,2) DEFAULT '0.00'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `youtube`
+--
+
+INSERT INTO `youtube` (`username`, `password`, `views`) VALUES
+(987, '16e89bfa028c432319ec32ae0a0569a8', '9.20'),
+(9871, 'ca794fb2d950acf25c964ecc35f2d7e2', '9.80'),
+(876, '4eff0335928a2d0e92f38ea9bb56d72b', '10.90'),
+(9787888015, '2ebc4144eb980ba99ecee58dff275116', '15.00'),
+(871, '4eff0335928a2d0e92f38ea9bb56d72b', '6.00'),
+(97, '1258267ecee03fe0eb86727eb124ca59', '8.00'),
+(9787888016, '2ebc4144eb980ba99ecee58dff275116', '7.00'),
+(9787888019, '2ebc4144eb980ba99ecee58dff275116', '2.00'),
+(9787888012, 'd5af618a662aa998aa463d2a626fbe7c', '9.85');
