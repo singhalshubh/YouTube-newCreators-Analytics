@@ -1,3 +1,13 @@
+<?php
+	$db = mysqli_connect("localhost","root","","youtube") or die("Error Connecting");
+	$username = $_GET['username'];
+	$query = "select views from `youtube` where username='$username'";
+	$result = mysqli_query($db,$query) or die(mysqli_error($db));
+	$responseArray = mysqli_fetch_all($result,MYSQLI_ASSOC);
+	setcookie("views",$responseArray[0]["views"],time()+600, "/");
+	@flush();
+?>
+
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8"/>
@@ -22,6 +32,9 @@
 		<video id='vid' controls>
 			<source src="video.mp4" type="video/mp4">
 		</video>
+		<button onclick="playVideo()" class="button">
+			Play
+		</button>
 		<form method="POST" action="views.php" id="form">
 			<input type="hidden" step = "any" name="ViewTime" id = "ViewTime">
 			<input type="hidden" name="username" id = "username">
@@ -31,6 +44,35 @@
 </body>
 
 <script type="text/javascript">
+	function playVideo() {
+		var video = document.getElementById('vid');
+		video.currentTime = parseInt(getCookie());
+		if(video.paused) {
+			//here there is only one cookie..so need of any parameter.
+			video.play();
+		}
+		else {
+			video.pause();
+		//we can record the time for sessionBased time recording. Use SET Datatype for views in SQL record then.
+		}
+	}
+
+	function getCookie() {
+		var array = document.cookie;
+		var value;
+		for(let i=0;i<array.length;i++) {
+			if(array[i] == "=") {
+				value = array[i+1];
+				break;
+			}
+		}
+		return value;
+	}
+
+	function viewTime() {
+		document.getElementById('vid').currentTime = $_COOKIE("views");
+	}
+
 	function viewsClose() {
 		document.getElementById("ViewTime").value = document.getElementById("vid").currentTime;
 		document.getElementById("username").value = <?php echo($_GET['username']);?>;
