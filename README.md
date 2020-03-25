@@ -1,4 +1,5 @@
 # YouTube-newCreators-Analytics
+Emulating YouTube Audience Retention Time feature.
 Helping new YouTubers to analyse their content by using the statistical population at different watch time.<br>
 YouTube is a platform which promotes various young content developers to outsource their talent. YouTube Creator's Analytics aims to provide a tool which can record the number of users at different watch times in the video so that the youtubers can check their content engangement time for various users and to analyse whether their risky/intuitive element of YouTube worked or not?(By seeing the analytics, one can determine the graph between time points and number of users).<br>
 
@@ -13,7 +14,7 @@ This picture is obtained from databaseState.txt database of users and their view
 This picture represents that many users have watched the content till 10th sec of the video i.e. after 10seconds, there is a possibility that the content didn't attract the audience.
 
 # Algorithm
-ViewTime means the max(video.time watched) for a user. It is not the same as watchTime of youtube. e.g. watchTime of a user is 1hr on that video, but he saw the video only till 5 minutes. So ViewTime is 5 minutes, watchTime for youtube is 1hr.   
+ViewTime means the max(video.time watched) for a user.   
 For one user (take maximum video time user has seen(seconds).)
 if(currentViewTime > previousViewTime) {
   update viewTime;
